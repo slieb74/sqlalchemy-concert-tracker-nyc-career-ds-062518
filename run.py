@@ -1,17 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship, backref, sessionmaker
 from datetime import date
-from base import Base
-from user import User
-from band import Band
-from city import City
-from show_song import ShowSong
-from show import Show
-from song import Song
-from user_show import UserShow
-from venue import Venue
+from models.base import Base
+from models.user import User
+from models.band import Band
+from models.city import City
+from models.show_song import ShowSong
+from models.show import Show
+from models.song import Song
+from models.user_show import UserShow
+from models.venue import Venue
 
-engine = create_engine("sqlite:///:memory:")
+engine = create_engine("sqlite:///concerts.db")
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
